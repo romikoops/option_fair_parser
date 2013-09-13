@@ -7,7 +7,7 @@ result = []
 EM.run do
   EM.add_periodic_timer(1) do
     EM.defer do
-      price = %x[#{CURL_REQ} -s].split(',')[29]
+      price = %x[#{CURL_REQ}].split(',')[14]
       result << [Time.now.utc.to_i, price].to_json
       if result.size == 60
         tmp = result
